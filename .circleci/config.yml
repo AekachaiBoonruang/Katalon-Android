@@ -21,7 +21,7 @@ jobs:
       # copy the build outputs to artifacts
       - cp -r app/build/outputs $CIRCLE_ARTIFACTS
       # copy the test results to the test results directory.
-          command: 
+ 
       - store-test_results:
           path: ./report
       - store-artifacts:
