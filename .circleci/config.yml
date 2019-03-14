@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Execute Katalon Studio
-          command: chown -R $USER:$USER run.sh && ./run.sh
+          command: sudo chmod +x run.sh && ./run.sh
       - store-test_results:
           path: ./report
       - store-artifacts:
