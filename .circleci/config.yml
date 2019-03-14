@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run:
           name: Execute Katalon Studio
-          command: run.sh
+          command: ./run.sh
       - store-test_results:
           path: ./report
       - store-artifacts:
