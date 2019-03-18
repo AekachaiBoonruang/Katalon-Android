@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    # working_directory: ~/Katalon-Android
+    working_directory: ~/Katalon-Android
     docker:
       - image: circleci/android:api-28
       - image: katalonstudio/katalon
@@ -37,7 +37,7 @@ jobs:
               adb shell input keyevent 82
       - run:
           name: Execute Katalon Studio
-          command: katalon-execute.sh -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Search" -browserType="Android"
+          command: cd ~/Katalon-Android && katalon-execute.sh -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Search" -browserType="Android"
       - store-test_results:
           path: ./report
       - store-artifacts:
