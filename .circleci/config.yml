@@ -14,7 +14,7 @@ jobs:
           TERM: dumb
       - run:
           name: Accept emulator
-          command: yes | sdkmanager --licenses && yes | sdkmanager --update
+          command: yes | sdkmanager --licenses || exit 0 && yes | sdkmanager --update || exit 0
       - run:
           name: Show list of system-images
           command: sdkmanager --list --verbose | grep system-images
