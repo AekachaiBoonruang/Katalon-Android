@@ -4,22 +4,13 @@ jobs:
     working_directory: ~/Katalon-Android
     docker:
       - image: circleci/android:api-28
-      - image: katalonstudio/katalon
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-    #   - run:
-    #       name: Lists installed targets
-    #       command: android list target
-    #       environment:
-    #       TERM: dumb
       - run:
           name: Accept emulator
           command: yes | sdkmanager --licenses || exit 0 && yes | sdkmanager --update || exit 0
-    #   - run:
-    #       name: Show list of system-images
-    #       command: sdkmanager --list --verbose | grep system-images
       - run:
           name: Setup Emulator
           command: sdkmanager "system-images;android-21;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-21;default;armeabi-v7a"
@@ -35,6 +26,15 @@ jobs:
           command: |
               circle-android wait-for-boot
               adb shell input keyevent 82
+
+  test:
+    working_directory: ~/Katalon-Android
+    docker:
+      - image: katalonstudio/katalon
+    environment:
+      JVM_OPTS: -Xmx3200m
+    steps:
+      - checkout
       - run:
           name: Execute Katalon Studio
           command: cd ~/Katalon-Android && katalon-execute.sh -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Search" -browserType="Android"
@@ -42,3 +42,10 @@ jobs:
           path: ./report
       - store-artifacts:
           path: ./report
+           
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
