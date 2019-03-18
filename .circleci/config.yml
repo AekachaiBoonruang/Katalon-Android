@@ -12,6 +12,9 @@ jobs:
           command: android list target
           environment:
           TERM: dumb
+        - run:
+          name: Accept emulator
+          command: yes | sdkmanager --licenses && yes | sdkmanager --update
       - run:
           name: Show list of system-images
           command: sdkmanager --list --verbose | grep system-images
