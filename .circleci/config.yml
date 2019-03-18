@@ -3,6 +3,7 @@ jobs:
     working_directory: ~/Katalon-Android
     docker:
       - image: circleci/android:api-28
+      - image: katalonstudio/katalon
     environment:
       JVM_OPTS: -Xmx3200m
     steps:
@@ -33,9 +34,10 @@ jobs:
           command: |
               circle-android wait-for-boot
               adb shell input keyevent 82
-
-      - store_artifacts:
-          path: app/build/reports
-          destination: reports
-      - store_test_results:
-          path: app/build/test-results
+      - run:
+          name: Execute Katalon Studio
+          command: katalon-execute.sh -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Search" -browserType="Android"
+      - store-test_results:
+          path: ./report
+      - store-artifacts:
+          path: ./report
