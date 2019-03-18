@@ -1,6 +1,6 @@
 jobs:
   build:
-    working_directory: ~/Katalon-Android
+    # working_directory: ~/Katalon-Android
     docker:
       - image: circleci/android:api-28
       - image: katalonstudio/katalon
@@ -8,17 +8,17 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - run:
-          name: Lists installed targets
-          command: android list target
-          environment:
-          TERM: dumb
+    #   - run:
+    #       name: Lists installed targets
+    #       command: android list target
+    #       environment:
+    #       TERM: dumb
       - run:
           name: Accept emulator
           command: yes | sdkmanager --licenses || exit 0 && yes | sdkmanager --update || exit 0
-      - run:
-          name: Show list of system-images
-          command: sdkmanager --list --verbose | grep system-images
+    #   - run:
+    #       name: Show list of system-images
+    #       command: sdkmanager --list --verbose | grep system-images
       - run:
           name: Setup Emulator
           command: sdkmanager "system-images;android-21;default;armeabi-v7a" && echo "no" | avdmanager create avd -n test -k "system-images;android-21;default;armeabi-v7a"
