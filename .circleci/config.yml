@@ -12,7 +12,7 @@ jobs:
           command: android list target
           environment:
           TERM: dumb
-        - run:
+      - run:
           name: Accept emulator
           command: yes | sdkmanager --licenses && yes | sdkmanager --update
       - run:
