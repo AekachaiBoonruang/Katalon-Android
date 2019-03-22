@@ -14,21 +14,7 @@ import com.kms.katalon.core.checkpoint.Checkpoint as Checkpoint
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.openBrowser('https://www.google.co.th/')
-
-WebUI.verifyTextPresent('ภาพ', false)
-
-WebUI.verifyTextPresent('ทั้งหมด', false)
-
-WebUI.verifyTextPresent('ลงชื่อเข้าสู่ระบบ', false)
-
-'Wait for Page Load'
-WebUI.waitForPageLoad(30)
-
-//WebUI.setText(findTestObject('Mobile element/android.login'), 'facebook')
-WebUI.sendKeys(findTestObject('Mobile element/android.search'), Keys.chord('facebook', Keys.ENTER))
-
-WebUI.verifyTextPresent('https://m.facebook.com', false)
+WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://www.facebook.com')
 
@@ -36,15 +22,15 @@ WebUI.setText(findTestObject('Mobile element/android.login'), 'slowwyCH@gmail.co
 
 WebUI.setText(findTestObject('Mobile element/android.password'), '123123123')
 
-WebUI.click(findTestObject('Mobile element/android.submit'))
+WebUI.click(findTestObject('Mobile element/pwa.submit'))
 
-WebUI.verifyTextPresent('ภาษาไทย', false)
+WebUI.delay(2)
 
-Mobile.verifyIsPortrait()
+WebUI.waitForElementPresent(findTestObject('Mobile element/android.verify'), 0)
 
-Mobile.takeScreenshot('', FailureHandling.STOP_ON_FAILURE)
+WebUI.verifyTextPresent('คุณลืมรหัสผ่านของคุณใช่ไหม', false)
 
-WebUI.verifyElementPresent(findTestObject('Mobile element/android.verify'), 0)
+WebUI.verifyTextPresent('รหัสผ่านที่คุณป้อนไม่ถูกต้อง', false)
 
-WebUI.verifyTextPresent('รหัสผ่านที่คุณป้อนไม่ถูกต้อง ', false)
+WebUI.closeBrowser()
 

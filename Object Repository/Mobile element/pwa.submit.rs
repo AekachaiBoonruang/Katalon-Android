@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>android.submit</name>
+   <name>pwa.submit</name>
    <tag></tag>
-   <elementGuidId>fbf15671-db10-425b-a954-6c8f6a6e89f6</elementGuidId>
+   <elementGuidId>99350b31-bbf6-4e0c-b1dd-a7e4adfd2180</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>

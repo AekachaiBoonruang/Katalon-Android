@@ -11,9 +11,9 @@
    <rerunFailedTestCasesOnly>false</rerunFailedTestCasesOnly>
    <testSuiteGuid>6285d259-3b6a-4ce2-8e20-6b9cccce92fd</testSuiteGuid>
    <testCaseLink>
-      <guid>8266cbbe-1d1c-4721-a928-61d2ca42499c</guid>
+      <guid>91c13ce9-54dd-4527-ac8c-1e83fcc563ee</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Search facebook on google successfuly</testCaseId>
+      <testCaseId>Test Cases/Test web pwa</testCaseId>
    </testCaseLink>
 </TestSuiteEntity>

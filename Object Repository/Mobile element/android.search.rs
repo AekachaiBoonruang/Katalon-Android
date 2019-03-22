@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>android.verify</name>
+   <name>android.search</name>
    <tag></tag>
-   <elementGuidId>7e06c8c8-24b8-4515-81aa-5fe6ed948726</elementGuidId>
+   <elementGuidId>0a44c0a8-abb7-4ff2-9c8c-d34bf3324b4d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value>//*[@id=&quot;u_0_0&quot;]/div[1]/span</value>
+         <value>//*[@name = 'q']</value>
       </entry>
    </selectorCollection>
    <selectorMethod>BASIC</selectorMethod>
@@ -15,8 +15,8 @@
    <webElementProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>xpath</name>
+      <name>name</name>
       <type>Main</type>
-      <value>//*[@id=&quot;u_0_0&quot;]/div[1]/span</value>
+      <value>q</value>
    </webElementProperties>
 </WebElementEntity>
