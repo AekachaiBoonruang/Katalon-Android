@@ -9,7 +9,6 @@ jobs:
       - run:
           name: Execute Katalon Studio
           command: cd ~/Katalon-Android && katalon-execute.sh -retry=0 -statusDelay=15 -testSuitePath="Test Suites/Search" -browserType="iphonesimul"
-          background: true
       - store-test_results:
           path: ./report
       - store-artifacts:
